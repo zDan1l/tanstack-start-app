@@ -1,0 +1,16 @@
+node_modules
+# Keep environment variables out of version control
+.env
+.env.prod
+/.output
+/generated/prisma
+/.claude
+/.tanstack
+/generated/prisma
+/.data 
+pnpm-lock.yaml
+dist
+build
+.next
+WORKFLOW.md
+WORKFLOW.pdf

@@ -1,0 +1,29 @@
+services :
+  app : 
+    build:
+      context : .
+      dockerfile : Dockerfile
+    ports :
+      - "3000:3000"
+    env_file :
+      - .env.prod
+    restart : unless-stopped
+    depends_on :
+      - db
+    
+  db : 
+    image : postgres:17
+    env_file :
+      - .env.prod
+    restart : unless-stopped
+    volumes :
+      - db_data:/var/lib/postgresql/data
+  
+  adminer: 
+    image : adminer
+    ports : 
+      - "8000:8080"
+
+volumes :
+  db_data :
+    name : "db_data"
